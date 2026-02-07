@@ -1,0 +1,16 @@
+[package]
+name = "sshpick"
+version = "0.1.0"
+edition = "2021"
+authors = ["Flydevox <flydevoxxx@gmail.com>"]
+description = "Interactive SSH key selector for Git operations"
+license = "MIT"
+repository = "https://github.com/flydevox/sshpick"
+keywords = ["git", "ssh", "cli", "key-management"]
+categories = ["command-line-utilities", "development-tools"]
+
+[dependencies]
+dialoguer = "0.11"
+console = "0.15"
+dirs = "5"
+anyhow = "1"
