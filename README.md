@@ -1,11 +1,11 @@
-# git-ssh-pick 🔑
+# pik 🔑
 
 Simple CLI tool: pick an SSH host from your `~/.ssh/config`, then test the connection with `ssh -T`.
 
 ## Usage
 
 ```bash
-$ git-ssh-pick
+$ pik
 
 ? Select SSH host:
 > github-perso  → github.com  [~/.ssh/id_ed25519_perso]  (git)
@@ -14,7 +14,13 @@ $ git-ssh-pick
 
 🔑 ssh -T git@github-perso
 
-Hi alice! You've successfully authenticated, but GitHub does not provide shell access.
+Hi alice-work! You've successfully authenticated.
+
+📋 Current git identity:
+    user.name  = Alice Personal
+    user.email = alice@gmail.com
+
+    ⚠ Does this look right?
 ```
 
 ## How it works
