@@ -145,5 +145,52 @@ fn main() -> Result<()> {
         anyhow::bail!("ssh exited with status {}", status);
     }
 
+    // Check git user.name and user.email in current repo
+    show_git_identity();
+
     Ok(())
+}
+
+fn show_git_identity() {
+    let name = Command::new("git")
+        .args(["config", "user.name"])
+        .output()
+        .ok()
+        .filter(|o| o.status.success())
+        .map(|o| String::from_utf8_lossy(&o.stdout).trim().to_string());
+
+    let email = Command::new("git")
+        .args(["config", "user.email"])
+        .output()
+        .ok()
+        .filter(|o| o.status.success())
+        .map(|o| String::from_utf8_lossy(&o.stdout).trim().to_string());
+
+    match (name, email) {
+        (Some(n), Some(e)) if !n.is_empty() && !e.is_empty() => {
+            println!();
+            println!(
+                "{} Current git identity:",
+                style("📋").bold()
+            );
+            println!("    user.name  = {}", style(&n).yellow());
+            println!("    user.email = {}", style(&e).yellow());
+            println!(
+                "\n    {} Does this look right?",
+                style("⚠").yellow().bold()
+            );
+        }
+        _ => {
+            println!();
+            println!(
+                "{} No git user.name/user.email configured in this repository.",
+                style("⚠").yellow().bold()
+            );
+            println!(
+                "    Run {} and {} to set them.",
+                style("git config user.name \"Your Name\"").cyan(),
+                style("git config user.email \"you@example.com\"").cyan()
+            );
+        }
+    }
 }

@@ -1,11 +1,11 @@
-# sshpick 🔑
+# git-ssh-pick 🔑
 
 Simple CLI tool: pick an SSH host from your `~/.ssh/config`, then test the connection with `ssh -T`.
 
 ## Usage
 
 ```bash
-$ sshpick
+$ git-ssh-pick
 
 ? Select SSH host:
 > github-perso  → github.com  [~/.ssh/id_ed25519_perso]  (git)

@@ -1,11 +1,11 @@
 [package]
-name = "sshpick"
+name = "pik"
 version = "0.1.0"
 edition = "2021"
-authors = ["Flydevox <flydevoxxx@gmail.com>"]
+authors = ["Your Name <you@example.com>"]
 description = "Interactive SSH key selector for Git operations"
 license = "MIT"
-repository = "https://github.com/flydevox/sshpick"
+repository = "https://github.com/youruser/git-ssh-pick"
 keywords = ["git", "ssh", "cli", "key-management"]
 categories = ["command-line-utilities", "development-tools"]
 
